@@ -2,7 +2,7 @@ import axios from "axios";
 
 const urls = {
   movies: "https://api.themoviedb.org",
-  api: ""
+  api: "https://movies.incodewetrust.dev"
 };
 
 export const request = async (method, url, endpoint, params = {}) => {

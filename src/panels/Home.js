@@ -1,21 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
-import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
-// import Button from "@vkontakte/vkui/dist/components/Button/Button";
-// import Group from "@vkontakte/vkui/dist/components/Group/Group";
-// import Cell from "@vkontakte/vkui/dist/components/Cell/Cell";
-// import Div from "@vkontakte/vkui/dist/components/Div/Div";
-// import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
+import { Panel, Header, Link } from "@vkontakte/vkui";
+import MovieSlider from "../components/MovieSlider";
 
-const Home = ({ id }) => (
-  <Panel id={id}>
-    <PanelHeader>Movieology</PanelHeader>
+const Home = ({ id, movies }) => (
+  <Panel id="header" theme="white">
+    <Header aside={<Link>Показать все</Link>}>ТОП-10</Header>
+    {movies && <MovieSlider movies={movies} />}
   </Panel>
 );
 
 Home.propTypes = {
   id: PropTypes.string.isRequired,
+  movies: PropTypes.array,
   fetchedUser: PropTypes.shape({
     photo_200: PropTypes.string,
     first_name: PropTypes.string,
