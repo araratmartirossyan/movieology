@@ -10,3 +10,7 @@ body {
   font-weight: 600 !important;
   font-size: 1.4em !important;
 }
+
+.gray {
+  background: #f7f6f9;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Gallery } from "@vkontakte/vkui";
+import Raiting from "./../Raiting/Raiting";
 import "./MovieSlider.css";
 
 const MovieCard = ({ title, poster_path, vote_average }, key) => (
@@ -10,17 +11,17 @@ const MovieCard = ({ title, poster_path, vote_average }, key) => (
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${poster_path})`,
         borderRadius: 12,
         backgroundSize: "cover",
-        height: "330px"
+        height: "230px"
       }}
     />
     {title}
-    {vote_average}
+    <Raiting rate={vote_average} key={key} />
   </div>
 );
 
 const MovieSlider = ({ movies = [] }) => (
   <div activePanel="gallery">
-    <Gallery slideWidth="80%" align="center" style={{ height: "100%" }}>
+    <Gallery slideWidth="60%" align="center" style={{ height: "100%" }}>
       {movies.map(MovieCard)}
     </Gallery>
   </div>
