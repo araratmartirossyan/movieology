@@ -18,7 +18,6 @@ export const request = async (method, url, endpoint, params = {}) => {
       method,
       data: params
     });
-    console.log("DATA", url, data);
     return data;
   } catch (err) {
     return err;

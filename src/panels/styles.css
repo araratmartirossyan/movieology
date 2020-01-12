@@ -10,3 +10,20 @@
 .Button--ios {
   border-radius: 24px;
 }
+
+.back-btn {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  left: 6px;
+  top: 6px;
+  color: #fff;
+  background-color: rgba(40, 43, 46, .2);
+  border-radius: 10px;
+  width: 44px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+}

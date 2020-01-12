@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import cx from "classnames";
-import MovieCard from "./MovieCard";
 import "./WhatToWatch.css";
 
 const WhatToWatchButton = ({ onFindMovie, moving }) => {

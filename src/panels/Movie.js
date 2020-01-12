@@ -23,7 +23,7 @@ const MovieView = ({
           <div className="text-movie-cont">
             <div className="mr-grid">
               <div className="col1">
-                <h2>{Title}</h2>
+                <h2 className="title">{Title}</h2>
                 <ul className="movie-gen">
                   <li>{Rated} /</li>
                   <li>{Runtime} /</li>
@@ -33,15 +33,13 @@ const MovieView = ({
             </div>
             <div className="mr-grid summary-row">
               <div className="col2">
-                <h5>SUMMARY</h5>
+                <h3>Описание:</h3>
               </div>
               <div className="col2">
-                <ul className="movie-likes">
-                  <li>
-                    <Icon28FavoriteOutline width={20} height={20} />
-                    {imdbRating}
-                  </li>
-                </ul>
+                <div className="movie-likes">
+                  <Icon28FavoriteOutline width={20} height={20} />
+                  <span>{imdbRating}</span>
+                </div>
               </div>
             </div>
             <div className="mr-grid">
@@ -51,7 +49,7 @@ const MovieView = ({
             </div>
             <div className="mr-grid actors-row">
               <div className="col1">
-                <p className="movie-actors">{Actors}</p>
+                <p className="movie-actors">{Actors.split("...")[0]}</p>
               </div>
             </div>
             <div className="mr-grid action-row">
