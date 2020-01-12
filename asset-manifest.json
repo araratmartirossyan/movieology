@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/movieology/static/css/main.c2c86b5f.chunk.css",
-    "main.js": "/movieology/static/js/main.47b414e0.chunk.js",
-    "main.js.map": "/movieology/static/js/main.47b414e0.chunk.js.map",
+    "main.css": "/movieology/static/css/main.48b746af.chunk.css",
+    "main.js": "/movieology/static/js/main.0657e662.chunk.js",
+    "main.js.map": "/movieology/static/js/main.0657e662.chunk.js.map",
     "runtime-main.js": "/movieology/static/js/runtime-main.1a0add10.js",
     "runtime-main.js.map": "/movieology/static/js/runtime-main.1a0add10.js.map",
     "static/css/2.2cfa1b23.chunk.css": "/movieology/static/css/2.2cfa1b23.chunk.css",
-    "static/js/2.b05db04d.chunk.js": "/movieology/static/js/2.b05db04d.chunk.js",
-    "static/js/2.b05db04d.chunk.js.map": "/movieology/static/js/2.b05db04d.chunk.js.map",
+    "static/js/2.1f1d1ca9.chunk.js": "/movieology/static/js/2.1f1d1ca9.chunk.js",
+    "static/js/2.1f1d1ca9.chunk.js.map": "/movieology/static/js/2.1f1d1ca9.chunk.js.map",
     "index.html": "/movieology/index.html",
-    "precache-manifest.b2463be7f241cb4d76f22da6d6207642.js": "/movieology/precache-manifest.b2463be7f241cb4d76f22da6d6207642.js",
+    "precache-manifest.f5dcbef808bc4b7c9e9c7d5493121034.js": "/movieology/precache-manifest.f5dcbef808bc4b7c9e9c7d5493121034.js",
     "service-worker.js": "/movieology/service-worker.js",
     "static/css/2.2cfa1b23.chunk.css.map": "/movieology/static/css/2.2cfa1b23.chunk.css.map",
-    "static/css/main.c2c86b5f.chunk.css.map": "/movieology/static/css/main.c2c86b5f.chunk.css.map",
-    "static/js/2.b05db04d.chunk.js.LICENSE": "/movieology/static/js/2.b05db04d.chunk.js.LICENSE"
+    "static/css/main.48b746af.chunk.css.map": "/movieology/static/css/main.48b746af.chunk.css.map",
+    "static/js/2.1f1d1ca9.chunk.js.LICENSE": "/movieology/static/js/2.1f1d1ca9.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.1a0add10.js",
     "static/css/2.2cfa1b23.chunk.css",
-    "static/js/2.b05db04d.chunk.js",
-    "static/css/main.c2c86b5f.chunk.css",
-    "static/js/main.47b414e0.chunk.js"
+    "static/js/2.1f1d1ca9.chunk.js",
+    "static/css/main.48b746af.chunk.css",
+    "static/js/main.0657e662.chunk.js"
   ]
 }
