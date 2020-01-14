@@ -266,3 +266,13 @@ h5 {
 .action-row {
   margin-top: 10px;
 }
+
+.back-btn {
+  color: #fe4141;
+  margin-top: 10px;
+}
+
+.back-btn button {
+  border-color: #fe4141;
+  color: #fe4141;
+}

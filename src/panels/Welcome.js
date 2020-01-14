@@ -1,6 +1,6 @@
 import React from "react";
 import WhatToWatch from "./../components/WhatToWatch/WhatToWatch";
-import "./styles.css";
+import "./Welcome.css";
 
 const WelcomePanel = ({ onFindMovie, movie }) => (
   <div className="welcome_panel">

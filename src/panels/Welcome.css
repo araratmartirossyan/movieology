@@ -1,5 +1,5 @@
 .welcome_panel {
-  background: #0D0F18;
+  background: #1e1b26;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -11,7 +11,7 @@
   border-radius: 24px;
 }
 
-.back-btn {
+/* .back-btn {
   position: fixed;
   top: 0;
   z-index: 9999;
@@ -26,4 +26,4 @@
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(12px);
-}
+} */

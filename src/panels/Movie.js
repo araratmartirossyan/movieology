@@ -1,13 +1,28 @@
 import React from "react";
+import { Button } from "@vkontakte/vkui";
 import Icon24ShareExternal from "@vkontakte/icons/dist/24/share_external";
 import Icon16LikeOutline from "@vkontakte/icons/dist/16/like_outline";
+import Icon16Like from "@vkontakte/icons/dist/16/like";
 import Icon24CommentOutline from "@vkontakte/icons/dist/24/comment_outline";
 import Icon28FavoriteOutline from "@vkontakte/icons/dist/28/favorite_outline";
 
 import "./Movie.css";
 
 const MovieView = ({
-  movie: { Title, Poster, Plot, Actors, Rated, Runtime, Genre, imdbRating }
+  movie: {
+    Title,
+    Poster,
+    Plot,
+    Actors,
+    Rated,
+    Runtime,
+    Genre,
+    imdbRating,
+    isFavorite,
+    _id
+  },
+  goBack,
+  onLike
 }) => {
   return (
     <div className="wrap">
@@ -54,18 +69,21 @@ const MovieView = ({
             </div>
             <div className="mr-grid action-row">
               <div className="col6 action-btn">
-                <Icon24CommentOutline
-                  width={30}
-                  height={30}
-                  style={{ color: "#fe4141" }}
-                />
-              </div>
-              <div className="col6 action-btn">
-                <Icon16LikeOutline
-                  width={30}
-                  height={30}
-                  style={{ color: "#fe4141" }}
-                />
+                {!isFavorite ? (
+                  <Icon16LikeOutline
+                    width={30}
+                    height={30}
+                    style={{ color: "#fe4141" }}
+                    onClick={() => onLike(_id)}
+                  />
+                ) : (
+                  <Icon16Like
+                    width={30}
+                    height={30}
+                    style={{ color: "#fe4141" }}
+                    onClick={() => onLike(_id)}
+                  />
+                )}
               </div>
               <div className="col6 action-btn">
                 <Icon24ShareExternal
@@ -74,6 +92,11 @@ const MovieView = ({
                   style={{ color: "#fe4141" }}
                 />
               </div>
+            </div>
+            <div className="back-btn">
+              <Button size="xl" level="outline" onClick={goBack}>
+                Назад
+              </Button>
             </div>
           </div>
         </div>
