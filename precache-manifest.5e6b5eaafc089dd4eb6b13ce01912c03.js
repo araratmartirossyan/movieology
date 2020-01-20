@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "97dbac8d9adccf7e60430d88ecad44a6",
+    "revision": "e7a7efbfc13878a0fccc8eb388908dd1",
     "url": "/movieology/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/movieology/static/css/2.2cfa1b23.chunk.css"
   },
   {
-    "revision": "34bb2178a4c966ebc4ba",
+    "revision": "32ab21810525e16720da",
     "url": "/movieology/static/css/main.41ff0fb8.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/movieology/static/js/2.58d5a195.chunk.js.LICENSE"
   },
   {
-    "revision": "34bb2178a4c966ebc4ba",
-    "url": "/movieology/static/js/main.bf12758f.chunk.js"
+    "revision": "32ab21810525e16720da",
+    "url": "/movieology/static/js/main.25122fdd.chunk.js"
   },
   {
     "revision": "f355bdc9047d2547751f",
