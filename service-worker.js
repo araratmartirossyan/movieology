@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/movieology/precache-manifest.1325d1568bc16ee7d61bbd65513d42b0.js"
+  "/movieology/precache-manifest.cc2c7a8ad2869f7e50fe98f3ac95c1bc.js"
 );
 
 self.addEventListener('message', (event) => {
