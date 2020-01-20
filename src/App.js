@@ -10,24 +10,29 @@ import {
   onMovieShare,
   handleFetchMovie
 } from "./utils/prefetchData";
+import { getObjectUrlString } from "./utils/urlParams";
+
 import Welcome from "./panels/Welcome";
 import MovieCard from "./panels/Movie";
 
 import "@vkontakte/vkui/dist/vkui.css";
 import "./styles/global.css";
 
-const App = ({ view = "welcome", movieId = null }) => {
-  const [activeView, setActiveView] = useState(view);
+const App = () => {
+  const [state, setState] = useState({ loaded: false });
+  const [activeView, setActiveView] = useState("welcome");
   const [vkUser, setUser] = useState(null);
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
+    const { view = "welcome", movieId = null } = getObjectUrlString();
     const prefetch = async () => {
       const { user } = await prefetchData();
       setUser(user);
     };
 
     if (movieId) {
+      setActiveView(view);
       setMovieOnInit(movieId);
     }
     prefetch();
@@ -45,6 +50,7 @@ const App = ({ view = "welcome", movieId = null }) => {
   };
 
   const handleFindMovie = async () => {
+    setState({ loaded: false });
     const movies = await fetchMovies();
     const randomMovieId = Math.floor(Math.random() * movies.length);
     const randomMovie = movies[randomMovieId];
@@ -53,9 +59,8 @@ const App = ({ view = "welcome", movieId = null }) => {
       ...randomMovie,
       isFavorite
     });
-    setTimeout(() => {
-      setActiveView("movie");
-    }, 3000);
+    setTimeout(() => setState({ loaded: true }), 1300);
+    setTimeout(() => setActiveView("movie"), 2000);
   };
 
   const likeHandler = async (movieId = null) => {
@@ -74,7 +79,7 @@ const App = ({ view = "welcome", movieId = null }) => {
     <Root activeView={activeView}>
       <View header={false} activePanel="welcome_panel" id="welcome">
         <Panel id="welcome_panel">
-          <Welcome onFindMovie={handleFindMovie} />
+          <Welcome onFindMovie={handleFindMovie} loaded={state.loaded} />
         </Panel>
       </View>
       <View header={false} activePanel="movie_panel" id="movie">

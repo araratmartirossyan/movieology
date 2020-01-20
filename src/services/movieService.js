@@ -1,5 +1,6 @@
 import { request } from "./../utils/request";
 import { isEmpty, head, propOr } from "ramda";
+import { getKeyAsync, setKeyAsync } from "./../utils/storageUtils";
 
 export default class MovieService {
   async fetchMovie(movieId) {
@@ -22,12 +23,12 @@ export default class MovieService {
 
   async like(movieId) {
     try {
-      const userId = localStorage.getItem("dbId");
+      const userId = await getKeyAsync(["userId"]);
       const like = await request("post", "favorites", "api", {
         profile: userId,
         movie: movieId
       });
-      localStorage.setItem("favId", like._id);
+      setKeyAsync("favId", like._id);
       return like;
     } catch (err) {
       throw err;
@@ -36,7 +37,7 @@ export default class MovieService {
 
   async unlike() {
     try {
-      const favId = localStorage.getItem("favId");
+      const favId = await getKeyAsync(["favId"]);
       const like = await request("delete", `favorites/${favId}`, "api");
       return like;
     } catch (err) {
@@ -46,14 +47,14 @@ export default class MovieService {
 
   async checkIsFav(movieId) {
     try {
-      const userId = localStorage.getItem("dbId");
+      const userId = await getKeyAsync(["userId"]);
       const fav = await request(
         "get",
         `favorites?movie=${movieId}&profile=${userId}`,
         "api"
       );
       const id = propOr(null, "id")(head(fav));
-      localStorage.setItem("favId", id);
+      setKeyAsync("favId", id);
       return !isEmpty(fav);
     } catch (err) {
       throw err;

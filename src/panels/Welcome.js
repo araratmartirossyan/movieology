@@ -2,9 +2,9 @@ import React from "react";
 import WhatToWatch from "./../components/WhatToWatch/WhatToWatch";
 import "./Welcome.css";
 
-const WelcomePanel = ({ onFindMovie, movie }) => (
+const WelcomePanel = ({ onFindMovie, loaded }) => (
   <div className="welcome_panel">
-    <WhatToWatch onFindMovie={onFindMovie} movie={movie} />
+    <WhatToWatch onFindMovie={onFindMovie} loaded={loaded} />
   </div>
 );
 

@@ -1,31 +1,22 @@
-import { request } from "./../utils/request";
 import { pick } from "ramda";
 import connect from "@vkontakte/vk-connect";
-connect.subscribe(e => console.log(e, "STATER"));
+import { request } from "./../utils/request";
+import { setKeyAsync } from "./../utils/storageUtils";
 
 export default class BlogService {
   async getUserFromVk() {
     try {
-      const userId = localStorage.getItem("userId");
-      if (userId) {
-        const profile = await this.getProfile(userId);
-        return profile;
-      }
-
       const user = await connect.sendPromise("VKWebAppGetUserInfo");
       const profile = await this.getProfile(user.id);
       if (profile) {
-        localStorage.setItem("userId", user.id);
         return profile;
       }
 
       const createdUser = await request("post", "profiles", "api", {
         ...pick(["photo_max_orig", "first_name", "last_name"], user),
-        userId: user.id
+        userId: String(user.id)
       });
-
-      localStorage.setItem("dbId", createdUser._id);
-      localStorage.setItem("user", JSON.stringify(createdUser));
+      setKeyAsync("userId", createdUser.id);
 
       return createdUser;
     } catch (err) {
@@ -39,10 +30,8 @@ export default class BlogService {
       `profiles/?userId=${userId}`,
       "api"
     );
-    localStorage.setItem("userId", userId);
     if (profile) {
-      localStorage.setItem("dbId", profile._id);
-      localStorage.setItem("user", JSON.stringify(profile));
+      setKeyAsync("userId", profile.id);
       return profile;
     }
     return null;
