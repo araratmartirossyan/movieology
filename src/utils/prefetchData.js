@@ -54,3 +54,16 @@ export const handleUnLike = async () => {
 };
 
 export const onMovieShare = movieId => vkService.onMovieShare(movieId);
+
+export const handleFetchMovie = async movieId => {
+  try {
+    const movie = await movieService.fetchMovie(movieId);
+    const isFavorite = await movieService.checkIsFav(movieId);
+    return {
+      ...movie,
+      isFavorite
+    };
+  } catch (err) {
+    throw err;
+  }
+};

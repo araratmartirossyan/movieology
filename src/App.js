@@ -7,7 +7,8 @@ import {
   checkIsFav,
   showImage,
   handleUnLike,
-  onMovieShare
+  onMovieShare,
+  handleFetchMovie
 } from "./utils/prefetchData";
 import Welcome from "./panels/Welcome";
 import MovieCard from "./panels/Movie";
@@ -15,7 +16,7 @@ import MovieCard from "./panels/Movie";
 import "@vkontakte/vkui/dist/vkui.css";
 import "./styles/global.css";
 
-const App = ({ view, movieId = null }) => {
+const App = ({ view = "welcome", movieId = null }) => {
   const [activeView, setActiveView] = useState(view);
   const [vkUser, setUser] = useState(null);
   const [movie, setMovie] = useState(null);
@@ -25,8 +26,23 @@ const App = ({ view, movieId = null }) => {
       const { user } = await prefetchData();
       setUser(user);
     };
+
+    if (movieId) {
+      setMovieOnInit(movieId);
+    }
     prefetch();
   }, []);
+
+  const setMovieOnInit = async movieId => {
+    try {
+      const fetchedMovie = await handleFetchMovie(movieId);
+      setMovie({
+        ...fetchedMovie
+      });
+    } catch (err) {
+      throw err;
+    }
+  };
 
   const handleFindMovie = async () => {
     const movies = await fetchMovies();

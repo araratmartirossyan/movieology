@@ -2,6 +2,15 @@ import { request } from "./../utils/request";
 import { isEmpty, head, propOr } from "ramda";
 
 export default class MovieService {
+  async fetchMovie(movieId) {
+    try {
+      const data = await request("get", `movies/${movieId}`, "api");
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async fetchMovies() {
     try {
       const data = await request("get", "movies", "api", {});

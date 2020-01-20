@@ -5,7 +5,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import connect from "@vkontakte/vk-connect";
 import App from "./App";
-// import registerServiceWorker from './sw';
 
 connect.send("VKWebAppInit", {});
 
