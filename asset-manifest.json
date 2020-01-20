@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/movieology/static/css/main.41ff0fb8.chunk.css",
-    "main.js": "/movieology/static/js/main.3479be9f.chunk.js",
-    "main.js.map": "/movieology/static/js/main.3479be9f.chunk.js.map",
+    "main.js": "/movieology/static/js/main.25122fdd.chunk.js",
+    "main.js.map": "/movieology/static/js/main.25122fdd.chunk.js.map",
     "runtime-main.js": "/movieology/static/js/runtime-main.1a0add10.js",
     "runtime-main.js.map": "/movieology/static/js/runtime-main.1a0add10.js.map",
     "static/css/2.2cfa1b23.chunk.css": "/movieology/static/css/2.2cfa1b23.chunk.css",
     "static/js/2.58d5a195.chunk.js": "/movieology/static/js/2.58d5a195.chunk.js",
     "static/js/2.58d5a195.chunk.js.map": "/movieology/static/js/2.58d5a195.chunk.js.map",
     "index.html": "/movieology/index.html",
-    "precache-manifest.4530ed9d3727952e86b6d302c1f99617.js": "/movieology/precache-manifest.4530ed9d3727952e86b6d302c1f99617.js",
+    "precache-manifest.5e6b5eaafc089dd4eb6b13ce01912c03.js": "/movieology/precache-manifest.5e6b5eaafc089dd4eb6b13ce01912c03.js",
     "service-worker.js": "/movieology/service-worker.js",
     "static/css/2.2cfa1b23.chunk.css.map": "/movieology/static/css/2.2cfa1b23.chunk.css.map",
     "static/css/main.41ff0fb8.chunk.css.map": "/movieology/static/css/main.41ff0fb8.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.2cfa1b23.chunk.css",
     "static/js/2.58d5a195.chunk.js",
     "static/css/main.41ff0fb8.chunk.css",
-    "static/js/main.3479be9f.chunk.js"
+    "static/js/main.25122fdd.chunk.js"
   ]
 }
