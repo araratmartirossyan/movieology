@@ -1,9 +1,11 @@
 // Api Calls
 import MovieService from "../services/movieService";
 import UserService from "../services/userService";
+import VkService from "../services/vkService";
 
 const movieService = new MovieService();
 const userService = new UserService();
+const vkService = new VkService();
 
 export const prefetchData = async () => {
   const user = await userService.getUserFromVk();
@@ -24,7 +26,7 @@ export const fetchMovies = async () => {
 
 export const handleLike = async movieId => {
   try {
-    const like = await userService.like(movieId);
+    const like = await movieService.like(movieId);
     return like;
   } catch (error) {
     throw error;
@@ -33,9 +35,22 @@ export const handleLike = async movieId => {
 
 export const checkIsFav = async movieId => {
   try {
-    const isFav = await userService.checkIsFav(movieId);
+    const isFav = await movieService.checkIsFav(movieId);
     return isFav;
   } catch (error) {
     throw error;
   }
 };
+
+export const showImage = img => userService.showImage(img);
+
+export const handleUnLike = async () => {
+  try {
+    const result = await movieService.unlike();
+    return result;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const onMovieShare = movieId => vkService.onMovieShare(movieId);

@@ -1,7 +1,7 @@
 import { request } from "./../utils/request";
-import { pick, isEmpty } from "ramda";
+import { pick } from "ramda";
 import connect from "@vkontakte/vk-connect";
-connect.subscribe(() => {});
+connect.subscribe(e => console.log(e, "STATER"));
 
 export default class BlogService {
   async getUserFromVk() {
@@ -9,7 +9,6 @@ export default class BlogService {
       const userId = localStorage.getItem("userId");
       if (userId) {
         const profile = await this.getProfile(userId);
-        this.fetchFavs(profile._id);
         return profile;
       }
 
@@ -17,7 +16,6 @@ export default class BlogService {
       const profile = await this.getProfile(user.id);
       if (profile) {
         localStorage.setItem("userId", user.id);
-        this.fetchFavs(profile._id);
         return profile;
       }
 
@@ -29,62 +27,9 @@ export default class BlogService {
       localStorage.setItem("dbId", createdUser._id);
       localStorage.setItem("user", JSON.stringify(createdUser));
 
-      this.fetchFavs(createdUser._id);
-
       return createdUser;
     } catch (err) {
       throw err;
-    }
-  }
-
-  async like(movieId) {
-    try {
-      const userId = localStorage.getItem("dbId");
-      const like = await request("post", "favorites", "api", {
-        profile: userId,
-        movie: movieId
-      });
-
-      return like;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  async unlike(movieId) {
-    try {
-      const userId = localStorage.getItem("dbId");
-      const like = await request("delete", "favorites", "api", {
-        profile: userId,
-        movie: movieId
-      });
-
-      return like;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  async checkIsFav(movieId) {
-    try {
-      const userId = localStorage.getItem("dbId");
-      const fav = await request(
-        "get",
-        `favorites?movie=${movieId}&profile=${userId}`,
-        "api"
-      );
-      return !isEmpty(fav);
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  async fetchFavs(userId) {
-    try {
-      const favs = await request("get", `favorites?profile=${userId}`, "api");
-      return favs;
-    } catch (error) {
-      throw error;
     }
   }
 
@@ -101,5 +46,11 @@ export default class BlogService {
       return profile;
     }
     return null;
+  }
+
+  showImage(url) {
+    connect.send("VKWebAppShowImages", {
+      images: [url]
+    });
   }
 }

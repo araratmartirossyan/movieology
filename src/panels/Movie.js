@@ -3,7 +3,6 @@ import { Button } from "@vkontakte/vkui";
 import Icon24ShareExternal from "@vkontakte/icons/dist/24/share_external";
 import Icon16LikeOutline from "@vkontakte/icons/dist/16/like_outline";
 import Icon16Like from "@vkontakte/icons/dist/16/like";
-import Icon24CommentOutline from "@vkontakte/icons/dist/24/comment_outline";
 import Icon28FavoriteOutline from "@vkontakte/icons/dist/28/favorite_outline";
 
 import "./Movie.css";
@@ -22,13 +21,17 @@ const MovieView = ({
     _id
   },
   goBack,
-  onLike
+  onLike,
+  showImage,
+  onUnLike,
+  onMovieShare
 }) => {
   return (
     <div className="wrap">
       <div className="cellphone-container">
         <div className="movie">
           <div
+            onClick={() => showImage(Poster)}
             className="movie-img"
             style={{
               backgroundImage: `url(${Poster})`,
@@ -81,7 +84,7 @@ const MovieView = ({
                     width={30}
                     height={30}
                     style={{ color: "#fe4141" }}
-                    onClick={() => onLike(_id)}
+                    onClick={() => onUnLike()}
                   />
                 )}
               </div>
@@ -90,6 +93,7 @@ const MovieView = ({
                   width={30}
                   height={30}
                   style={{ color: "#fe4141" }}
+                  onClick={() => onMovieShare(_id)}
                 />
               </div>
             </div>

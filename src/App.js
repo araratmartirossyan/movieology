@@ -4,7 +4,10 @@ import {
   prefetchData,
   handleLike,
   fetchMovies,
-  checkIsFav
+  checkIsFav,
+  showImage,
+  handleUnLike,
+  onMovieShare
 } from "./utils/prefetchData";
 import Welcome from "./panels/Welcome";
 import MovieCard from "./panels/Movie";
@@ -12,8 +15,8 @@ import MovieCard from "./panels/Movie";
 import "@vkontakte/vkui/dist/vkui.css";
 import "./styles/global.css";
 
-const App = () => {
-  const [activeView, setActiveView] = useState("welcome");
+const App = ({ view, movieId = null }) => {
+  const [activeView, setActiveView] = useState(view);
   const [vkUser, setUser] = useState(null);
   const [movie, setMovie] = useState(null);
 
@@ -39,11 +42,15 @@ const App = () => {
     }, 3000);
   };
 
-  const likeHandler = async movieId => {
-    await handleLike(movieId);
+  const likeHandler = async (movieId = null) => {
+    if (movieId) {
+      await handleLike(movieId);
+    } else {
+      await handleUnLike();
+    }
     setMovie({
       ...movie,
-      isFavorite: true
+      isFavorite: movieId ? true : false
     });
   };
 
@@ -60,7 +67,10 @@ const App = () => {
             <MovieCard
               movie={movie}
               goBack={() => setActiveView("welcome")}
+              showImage={showImage}
               onLike={likeHandler}
+              onUnLike={likeHandler}
+              onMovieShare={onMovieShare}
             />
           )}
         </Panel>
